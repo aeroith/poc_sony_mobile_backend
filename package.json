@@ -1,0 +1,41 @@
+{
+  "name": "sonychannelmobile",
+  "version": "0.0.1",
+  "description": "Backend application for PoC task Sony Channel Mobile",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeroith/poc_sony_mobile_backend.git"
+  },
+  "author": "Bugra and Serhat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aeroith/poc_sony_mobile_backend/issues"
+  },
+  "homepage": "https://github.com/aeroith/poc_sony_mobile_backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.1",
+    "knex": "^0.14.4",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-redis": "^3.1.2",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "lodash": "^4.17.5",
+    "moment": "^2.20.1",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^5.0.1",
+    "sinon": "^4.4.2"
+  }
+}
