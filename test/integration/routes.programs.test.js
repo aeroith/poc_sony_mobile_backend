@@ -36,7 +36,7 @@ describe('routes : programs', () => {
           res.body.data.length.should.eql(4);
           // the first object in the data array should
           // have the right keys
-          res.body.data[0].should.include.keys('id', 'name', 'featured', 'global_image_url', 'type', 'tags', 'local_image_url');
+          res.body.data[0].should.include.keys('id', 'name', 'featured', 'image_url', 'type', 'tags', 'local_image_url', 'description', 'tmdb_id');
           done();
         });
     });
@@ -58,7 +58,7 @@ describe('routes : programs', () => {
           res.body.status.should.eql('success');
           // the JSON response body should have a
           // key-value pair of {"data": 1 program object}
-          res.body.data[0].should.include.keys('id', 'name', 'featured', 'global_image_url', 'type', 'tags', 'local_image_url');
+          res.body.data[0].should.include.keys('id', 'name', 'featured', 'image_url', 'type', 'tags', 'local_image_url', 'description', 'tmdb_id');
           done();
         });
     });

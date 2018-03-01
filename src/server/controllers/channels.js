@@ -29,11 +29,13 @@ module.exports = {
         .andWhere('end_time', '<=', endTime);
     }
 
+    if (limit) query = query.limit(limit);
+
+    if (offset) query = query.offset(offset);
+
     try {
       const feed = await query
-        .orderBy('start_time', 'asc')
-        .limit(limit)
-        .offset(offset);
+        .orderBy('start_time', 'asc');
 
       if (feed && feed.length) {
         ctx.body = {

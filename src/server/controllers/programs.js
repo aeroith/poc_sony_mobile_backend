@@ -43,10 +43,12 @@ module.exports = {
           'p.name',
           'p.id',
           'p.image_url AS local_image_url',
+          'p.description',
           'gp.type',
           'gp.tags',
           'gp.featured',
           'gp.image_url',
+          'gp.tmdb_id',
         )
         .from('programs AS p')
         .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')

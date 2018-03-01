@@ -1,12 +1,16 @@
 const Router = require('koa-router');
 
-const router = new Router();
+const program = require('./programs');
+const channel = require('./channels');
+const country = require('./countries');
 
-router.get('/', async (ctx) => {
-  ctx.body = {
-    status: 'success',
-    message: 'hello, world!',
-  };
-});
+const router = new Router();
+const api = new Router();
+
+api.use(program);
+api.use(channel);
+api.use(country);
+
+router.use('/api/v1', api.routes());
 
 module.exports = router;

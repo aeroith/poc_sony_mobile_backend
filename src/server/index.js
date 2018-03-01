@@ -1,19 +1,26 @@
 const Koa = require('koa');
-const indexRoutes = require('./routes/index');
-const programRoutes = require('./routes/programs');
-const channelRoutes = require('./routes/channels');
-const countryRoutes = require('./routes/countries');
+const responseTime = require('koa-response-time');
+const helmet = require('koa-helmet');
+const logger = require('koa-logger');
+require('dotenv').config();
+
+const { server: { port } } = require('./config');
+const config = require('./config');
+const routes = require('./routes');
 
 const app = new Koa();
-const PORT = process.env.PORT || 1337;
 
-app.use(indexRoutes.routes());
-app.use(programRoutes.routes());
-app.use(channelRoutes.routes());
-app.use(countryRoutes.routes());
+if (!config.env.isTest) {
+  app.use(responseTime());
+  app.use(helmet());
+}
 
-const server = app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
+app.use(logger());
+app.use(routes.routes());
+app.use(routes.allowedMethods());
+
+const server = app.listen(port, () => {
+  console.log(`Server listening on port: ${port}`);
 });
 
 module.exports = server;
