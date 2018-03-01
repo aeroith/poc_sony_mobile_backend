@@ -22,7 +22,7 @@ const programs = [
     name: 'The Godfather',
     description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
     global_program_id: 4,
-  }
+  },
 ];
 
 module.exports = { programs };

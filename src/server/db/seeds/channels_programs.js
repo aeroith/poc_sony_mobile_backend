@@ -1,5 +1,6 @@
-const bbPromise = require('bluebird')
+const bbPromise = require('bluebird');
 const data = require('./data/index');
+
 const tables = [
   'channels_programs',
   'feed',
@@ -46,5 +47,5 @@ exports.seed = function(knex, Promise) {
     .then(() => bbPromise.map(data.channels_programs, f => knex('channels_programs').insert({
       channel_id: f.channel_id,
       program_id: f.program_id,
-    })))
+    })));
 };

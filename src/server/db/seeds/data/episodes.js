@@ -32,7 +32,7 @@ const episodes = [
   {
     id: 6,
     program_id: 4,
-  }
+  },
 ];
 
 module.exports = { episodes };

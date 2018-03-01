@@ -9,7 +9,7 @@ const channels = [
     id: 2,
     name: 'Sony Crime Channel',
     locale: 'en_GB',
-    is_default: true
+    is_default: true,
   },
   {
     id: 3,
@@ -20,7 +20,7 @@ const channels = [
     id: 4,
     name: 'Sony Channel Deutschland',
     locale: 'de_DE',
-    is_default: true
+    is_default: true,
   },
 ];
 

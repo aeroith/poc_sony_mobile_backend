@@ -21,7 +21,7 @@ const global_programs = [
   {
     id: 4,
     type: 'movie',
-  }
+  },
 ];
 
 module.exports = { global_programs };

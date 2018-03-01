@@ -11,5 +11,5 @@ module.exports = {
   feed,
   programs,
   global_programs,
-  channels_programs
+  channels_programs,
 };
