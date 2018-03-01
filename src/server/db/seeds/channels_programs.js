@@ -9,7 +9,7 @@ const tables = [
   'programs',
   'global_programs',
 ];
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex) {
   return bbPromise.mapSeries(tables, table => knex(table).del())
     .then(() => bbPromise.map(tables, table => knex.raw(`ALTER SEQUENCE ${table}_id_seq RESTART WITH 1`)))
     .then(() => bbPromise.map(data.global_programs, f => knex('global_programs').insert({

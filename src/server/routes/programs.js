@@ -14,7 +14,7 @@ router.get(BASE_URL, async (ctx) => {
   } catch (err) {
     console.log(err);
   }
-})
+});
 
 router.get(`${BASE_URL}/:id`, async (ctx) => {
   try {
