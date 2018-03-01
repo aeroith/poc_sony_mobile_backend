@@ -17,6 +17,10 @@ const global_programs = [
     type: 'series',
     tags: ['popular'],
     featured: false,
+  },
+  {
+    id: 4,
+    type: 'movie',
   }
 ];
 

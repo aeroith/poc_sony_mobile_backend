@@ -1,39 +1,39 @@
 const channels_programs = [
   {
-    channel: 1,
-    program: 1,
+    channel_id: 1,
+    program_id: 1,
   },
   {
-    channel: 1,
-    program: 2,
+    channel_id: 1,
+    program_id: 2,
   },
   {
-    channel: 1,
-    program: 3,
+    channel_id: 1,
+    program_id: 3,
   },
   {
-    channel: 2,
-    program: 1,
+    channel_id: 2,
+    program_id: 1,
   },
   {
-    channel: 2,
-    program: 2,
+    channel_id: 2,
+    program_id: 2,
   },
   {
-    channel: 3,
-    program: 3,
+    channel_id: 3,
+    program_id: 3,
   },
   {
-    channel: 3,
-    program: 2,
+    channel_id: 3,
+    program_id: 2,
   },
   {
-    channel: 4,
-    program: 2,
+    channel_id: 4,
+    program_id: 2,
   },
   {
-    channel: 4,
-    program: 1,
+    channel_id: 4,
+    program_id: 1,
   },
 ];
 

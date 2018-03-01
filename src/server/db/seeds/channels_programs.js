@@ -2,9 +2,7 @@ const bbPromise = require('bluebird')
 const data = require('./data/index');
 const tables = [
   'channels_programs',
-  'locales_channels',
   'feed',
-  'locales',
   'channels',
   'episodes',
   'programs',
@@ -24,37 +22,29 @@ exports.seed = function(knex, Promise) {
       id: f.id,
       name: f.name,
       description: f.description,
-      global_program: f.global_program,
+      global_program_id: f.global_program_id,
     })))
     .then(() => bbPromise.map(data.episodes, f => knex('episodes').insert({
       id: f.id,
       season: f.season,
       episode_number: f.episode_number,
-      program: f.program,
+      program_id: f.program_id,
     })))
     .then(() => bbPromise.map(data.channels, f => knex('channels').insert({
       id: f.id,
+      locale: f.locale,
       name: f.name,
       is_default: f.is_default,
-    })))
-    .then(() => bbPromise.map(data.locales, f => knex('locales').insert({
-      id: f.id,
-      country: f.country,
-      language: f.language,
     })))
     .then(() => bbPromise.map(data.feed, f => knex('feed').insert({
       id: f.id,
       start_time: f.start_time,
       end_time: f.end_time,
-      channel: f.channel,
-      program: f.program,
-    })))
-    .then(() => bbPromise.map(data.locales_channels, f => knex('locales_channels').insert({
-      locale: f.locale,
-      channel: f.channel,
+      channel_id: f.channel_id,
+      episode_id: f.episode_id,
     })))
     .then(() => bbPromise.map(data.channels_programs, f => knex('channels_programs').insert({
-      channel: f.channel,
-      program: f.program,
+      channel_id: f.channel_id,
+      program_id: f.program_id,
     })))
 };
