@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "description": "Backend application for PoC task Sony Channel Mobile",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "cross-env NODE_ENV=test ./node_modules/mocha/bin/_mocha ./test/**/*.test.js --exit"
+    "test": "cross-env NODE_ENV=test ./node_modules/mocha/bin/_mocha ./test/**/*.test.js --exit",
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
