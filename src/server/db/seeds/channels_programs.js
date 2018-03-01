@@ -1,5 +1,5 @@
 const bbPromise = require('bluebird');
-const data = require('./data/index');
+const data = require('./data');
 
 const tables = [
   'channels_programs',
