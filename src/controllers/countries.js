@@ -29,7 +29,7 @@ module.exports = {
         ctx.status = 404;
         ctx.body = {
           status: 'error',
-          message: 'There are no feed data between the given interval',
+          message: 'No countries were found',
         };
       }
     } catch (err) {
