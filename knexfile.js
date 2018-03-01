@@ -1,11 +1,9 @@
 const path = require('path');
 
-const ROOT = './';
-
-require('dotenv').config({ path: path.join(ROOT, '.env') });
+require('dotenv').config();
 
 const { DB_CLIENT, DB_CONNECTION, DB_CONNECTION_TEST } = process.env;
-const BASE_PATH = path.join(__dirname, 'src', 'server', 'db');
+const BASE_PATH = path.join(__dirname, 'src', 'db');
 
 module.exports = {
   test: {
