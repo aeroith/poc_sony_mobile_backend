@@ -7,7 +7,9 @@ exports.up = function (knex) {
       table.enu('type', ['movie', 'series']).notNullable();
       table.boolean('featured').defaultTo(false);
       table.json('tags');
+      table.json('categories');
       table.string('image_url');
+      table.string('tmdb_id');
       table.timestamps(true, true);
     })
 
@@ -15,6 +17,7 @@ exports.up = function (knex) {
       table.increments('id');
       table.string('name').notNullable();
       table.string('locale').notNullable();
+      table.json('menu').notNullable();
       table.boolean('is_default').defaultTo(false);
       table.timestamps(true, true);
     })
@@ -41,6 +44,7 @@ exports.up = function (knex) {
       table.integer('season');
       table.integer('episode_number');
       table.text('description');
+      table.string('image_url');
       table.integer('program_id').references('programs.id').notNullable();
       table.timestamps(true, true);
     })
@@ -52,11 +56,19 @@ exports.up = function (knex) {
       table.integer('channel_id').references('channels.id').notNullable();
       table.integer('episode_id').references('episodes.id').notNullable();
       table.timestamps(true, true);
+    })
+
+    .createTable('config', (table) => {
+      table.increments('id');
+      table.string('locale');
+      table.boolean('rtl').defaultTo(false);
+      table.timestamps(true, true);
     });
 };
 
 exports.down = function (knex) {
   return knex.schema
+    .dropTableIfExists('config')
     .dropTableIfExists('channels_programs')
     .dropTableIfExists('feed')
     .dropTableIfExists('channels')
