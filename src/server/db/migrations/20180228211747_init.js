@@ -51,8 +51,8 @@ exports.up = function (knex) {
 
     .createTable('feed', (table) => {
       table.increments('id');
-      table.dateTime('start_time').notNullable();
-      table.dateTime('end_time').notNullable();
+      table.bigInteger('start_time').notNullable();
+      table.bigInteger('end_time').notNullable();
       table.integer('channel_id').references('channels.id').notNullable();
       table.integer('episode_id').references('episodes.id').notNullable();
       table.timestamps(true, true);
