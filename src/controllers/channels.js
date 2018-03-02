@@ -58,7 +58,14 @@ module.exports = {
     const { id } = ctx.params;
     try {
       const channel = await knex
-        .select('*')
+        .select(
+          'id',
+          'name',
+          'locale',
+          'menu',
+          'is_default',
+          'rtl',
+        )
         .from('channels')
         .where({ id });
       if (channel.length) {
@@ -87,6 +94,7 @@ module.exports = {
           'locale',
           'menu',
           'is_default',
+          'rtl',
         )
         .from('channels');
       if (channel && channel.length) {

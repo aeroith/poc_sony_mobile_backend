@@ -19,6 +19,7 @@ exports.up = function (knex) {
       table.string('locale').notNullable();
       table.json('menu').notNullable();
       table.boolean('is_default').defaultTo(false);
+      table.boolean('rtl').defaultTo(false);
       table.timestamps(true, true);
     })
 
@@ -57,18 +58,10 @@ exports.up = function (knex) {
       table.integer('episode_id').references('episodes.id').notNullable();
       table.timestamps(true, true);
     })
-
-    .createTable('config', (table) => {
-      table.increments('id');
-      table.string('locale');
-      table.boolean('rtl').defaultTo(false);
-      table.timestamps(true, true);
-    });
 };
 
 exports.down = function (knex) {
   return knex.schema
-    .dropTableIfExists('config')
     .dropTableIfExists('channels_programs')
     .dropTableIfExists('feed')
     .dropTableIfExists('channels')
