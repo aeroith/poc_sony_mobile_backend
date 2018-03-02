@@ -7,7 +7,7 @@ const BASE_PATH = path.join(__dirname, 'src', 'db');
 const TEST_BASE_PATH = path.join(__dirname, 'test', 'db');
 
 module.exports = {
-  test: {
+  development: {
     client: DB_CLIENT || 'pg',
     connection: DB_CONNECTION,
     migrations: {
@@ -17,7 +17,7 @@ module.exports = {
       directory: path.join(BASE_PATH, 'seeds'),
     },
   },
-  development: {
+  test: {
     client: DB_CLIENT || 'pg',
     connection: DB_CONNECTION_TEST,
     migrations: {
