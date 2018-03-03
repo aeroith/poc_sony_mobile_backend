@@ -1,5 +1,6 @@
 const knex = require('../db/connection');
 const http = require('../utils/http');
+const utils = require('../utils/utils');
 const _ = require('lodash');
 const { parseQueryParams } = require('../utils/utils');
 
@@ -68,7 +69,8 @@ module.exports = {
 
   async get(ctx) {
     try {
-      const channel = await knex
+      const params = ctx.query;
+      let query = knex
         .select(
           'id',
           'name',
@@ -78,6 +80,10 @@ module.exports = {
           'rtl',
         )
         .from('channels');
+      if (_.has(params, 'limit')) {
+        query = query.limit(params.limit);
+      }
+      const channel = await query;
       http.ok(ctx, channel);
     } catch (err) {
       http.internalServerError(ctx, err);
@@ -87,9 +93,22 @@ module.exports = {
   async getPrograms(ctx) {
     const { channel_id, program_id } = ctx.params;
     const params = parseQueryParams(ctx.query);
+    const availableFields = [
+      'name',
+      'description',
+      'local_image_url',
+      'global_image_url',
+      'type',
+      'featured',
+      'tags',
+      'categories',
+      'id',
+      'tmdb_id',
+    ];
     try {
       let query = knex
         .select(
+          'p.id',
           'p.name',
           'p.description',
           'p.image_url AS local_image_url',
@@ -110,6 +129,12 @@ module.exports = {
       }
       if (_.has(params, 'featured')) {
         query = query.andWhere('gp.featured', params.featured);
+      }
+      if (_.has(params, 'limit')) {
+        query = query.limit(params.limit);
+      }
+      if (_.has(params, 'order')) {
+        query = utils.addOrderBy(query, availableFields, params.sort, params.order);
       }
       const programs = await query;
       http.ok(ctx, programs);
