@@ -1,4 +1,7 @@
 const knex = require('../db/connection');
+const http = require('../utils/http');
+const _ = require('lodash');
+const { parseQueryParams } = require('../utils/utils');
 
 module.exports = {
   async getFeeds(ctx) {
@@ -37,20 +40,9 @@ module.exports = {
       const feed = await query
         .orderBy('start_time', 'asc');
 
-      if (feed && feed.length) {
-        ctx.body = {
-          status: 'success',
-          data: feed,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'There are no feed data between the given interval',
-        };
-      }
+      http.ok(ctx, feed);
     } catch (err) {
-      console.log(err);
+      http.internalServerError(ctx, err);
     }
   },
 
@@ -68,20 +60,9 @@ module.exports = {
         )
         .from('channels')
         .where({ id });
-      if (channel.length) {
-        ctx.body = {
-          status: 'success',
-          data: channel,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'That channel does not exist.',
-        };
-      }
+      http.ok(ctx, channel);
     } catch (err) {
-      console.log(err);
+      http.internalServerError(ctx, err);
     }
   },
 
@@ -97,20 +78,43 @@ module.exports = {
           'rtl',
         )
         .from('channels');
-      if (channel && channel.length) {
-        ctx.body = {
-          status: 'success',
-          data: channel,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'That channel does not exist.',
-        };
+      http.ok(ctx, channel);
+    } catch (err) {
+      http.internalServerError(ctx, err);
+    }
+  },
+
+  async getPrograms(ctx) {
+    const { channel_id, program_id } = ctx.params;
+    const params = parseQueryParams(ctx.query);
+    try {
+      let query = knex
+        .select(
+          'p.name',
+          'p.description',
+          'p.image_url AS local_image_url',
+          'gp.image_url AS global_image_url',
+          'gp.type',
+          'gp.featured',
+          'gp.tags',
+          'gp.categories',
+          'gp.tmdb_id',
+        )
+        .from('channels AS c')
+        .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
+        .innerJoin('programs AS p', 'cp.program_id', 'p.id')
+        .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+        .where('c.id', channel_id);
+      if (program_id) {
+        query = query.andWhere('p.id', program_id);
       }
-    } catch (error) {
-      console.log(error);
+      if (_.has(params, 'featured')) {
+        query = query.andWhere('gp.featured', params.featured);
+      }
+      const programs = await query;
+      http.ok(ctx, programs);
+    } catch (err) {
+      http.internalServerError(ctx, err);
     }
   },
 };

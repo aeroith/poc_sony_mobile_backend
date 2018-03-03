@@ -57,7 +57,7 @@ exports.up = function (knex) {
       table.integer('channel_id').references('channels.id').notNullable();
       table.integer('episode_id').references('episodes.id').notNullable();
       table.timestamps(true, true);
-    })
+    });
 };
 
 exports.down = function (knex) {

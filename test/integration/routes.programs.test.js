@@ -79,7 +79,7 @@ describe('routes : programs', () => {
         res.body.status.should.eql('error');
         // the JSON response body should have a
         // key-value pair of {"message": "That program does not exist."}
-        res.body.message.should.eql('That program does not exist.');
+        res.body.message.should.eql('Not found.');
         done();
       });
   });

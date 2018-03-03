@@ -56,7 +56,7 @@ describe('routes : channels', () => {
         res.status.should.equal(404);
         res.type.should.equal('application/json');
         res.body.status.should.eql('error');
-        res.body.message.should.eql('That channel does not exist.');
+        res.body.message.should.eql('Not found.');
         done();
       });
   });

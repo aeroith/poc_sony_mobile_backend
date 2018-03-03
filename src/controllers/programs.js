@@ -1,4 +1,5 @@
 const knex = require('../db/connection');
+const http = require('../utils/http');
 
 module.exports = {
   async get(ctx) {
@@ -18,20 +19,9 @@ module.exports = {
         .from('programs AS p')
         .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id');
 
-      if (programs.length) {
-        ctx.body = {
-          status: 'success',
-          data: programs,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'That program does not exist.',
-        };
-      }
-    } catch (error) {
-      console.log(error);
+      http.ok(ctx, programs);
+    } catch (err) {
+      http.internalServerError(ctx, err);
     }
   },
 
@@ -54,20 +44,9 @@ module.exports = {
         .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
         .where('p.id', id);
 
-      if (programs.length) {
-        ctx.body = {
-          status: 'success',
-          data: programs,
-        };
-      } else {
-        ctx.status = 404;
-        ctx.body = {
-          status: 'error',
-          message: 'That program does not exist.',
-        };
-      }
-    } catch (error) {
-      console.log(error);
+      http.ok(ctx, programs);
+    } catch (err) {
+      http.internalServerError(ctx, err);
     }
   },
 };
