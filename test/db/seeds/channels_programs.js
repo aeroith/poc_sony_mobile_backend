@@ -10,7 +10,7 @@ const tables = [
   'global_programs',
 ];
 exports.seed = function (knex) {
-  return bbPromise.mapSeries(tables, table => knex(table).del()) 
+  return bbPromise.mapSeries(tables, table => knex(table).del())
     .then(() => bbPromise.map(tables, table => knex.raw(`ALTER SEQUENCE ${table}_id_seq RESTART WITH 1`)))
     .then(() => bbPromise.map(data.global_programs, f => knex('global_programs').insert({
       id: f.id,
@@ -41,6 +41,8 @@ exports.seed = function (knex) {
       menu: JSON.stringify(f.menu),
       is_default: f.is_default,
       rtl: f.rtl,
+      logo: f.logo,
+      url: f.url,
     })))
     .then(() => bbPromise.map(data.feed, f => knex('feed').insert({
       id: f.id,

@@ -37,6 +37,7 @@ describe('routes : countries', () => {
           // the first object in the data array should
           // have the right keys
           res.body.data[0].should.include.keys('channels', 'default_channel', 'locale');
+          res.body.data[0].channels[0].should.include.keys('id', 'name', 'menu', 'url', 'logo');
           done();
         });
     });

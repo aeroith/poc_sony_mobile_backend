@@ -26,6 +26,7 @@ module.exports = {
 
     let query = knex
       .select(
+        'f.id',
         'f.start_time',
         'f.end_time',
         'e.season',
@@ -198,6 +199,9 @@ module.exports = {
           default:
             return http.badRequest(ctx);
         }
+      }
+      if (_.has(params, 'limit')) {
+        query = query.limit(params.limit);
       }
       const episodes = await query;
       http.ok(ctx, episodes);

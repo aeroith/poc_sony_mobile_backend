@@ -17,6 +17,8 @@ exports.up = function (knex) {
       table.increments('id');
       table.string('name').notNullable();
       table.string('locale').notNullable();
+      table.string('logo').notNullable();
+      table.string('url').notNullable();
       table.json('menu').notNullable();
       table.boolean('is_default').defaultTo(false);
       table.boolean('rtl').defaultTo(false);
@@ -46,7 +48,7 @@ exports.up = function (knex) {
       table.integer('episode_number');
       table.text('description');
       table.string('image_url');
-      table.integer('program_id').references('programs.id').notNullable();
+      table.integer('program_id').references('programs.id').notNullable().onDelete('CASCADE');
       table.timestamps(true, true);
     })
 
@@ -54,8 +56,8 @@ exports.up = function (knex) {
       table.increments('id');
       table.bigInteger('start_time').notNullable();
       table.bigInteger('end_time').notNullable();
-      table.integer('channel_id').references('channels.id').notNullable();
-      table.integer('episode_id').references('episodes.id').notNullable();
+      table.integer('channel_id').references('channels.id').notNullable().onDelete('CASCADE');
+      table.integer('episode_id').references('episodes.id').notNullable().onDelete('CASCADE');
       table.timestamps(true, true);
     });
 };

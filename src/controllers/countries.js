@@ -6,7 +6,7 @@ module.exports = {
   async get(ctx) {
     try {
       const result = await knex
-        .select('id', 'name', 'locale', 'is_default')
+        .select('id', 'name', 'locale', 'is_default', 'menu', 'url', 'logo')
         .from('channels');
 
       const data = _(result)
@@ -19,6 +19,9 @@ module.exports = {
             channels: _.map(value, v => ({
               id: v.id,
               name: v.name,
+              menu: v.menu,
+              url: v.url,
+              logo: v.logo,
             })),
           };
         })
