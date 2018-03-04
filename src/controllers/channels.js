@@ -153,10 +153,12 @@ module.exports = {
     const { channel_id } = ctx.params;
     const params = parseQueryParams(ctx.query);
     try {
-      let query = knex;
+      let query;
       if (_.has(params, 'distinct')) {
-        query = query
+        query = knex
           .distinct(knex.raw('ON (p.name) p.name'));
+      } else {
+        query = knex.select('p.name');
       }
       query = query
         .select(
