@@ -23,7 +23,7 @@ const feed = [
     start_time: moment().add(2, 'hours').unix(Number),
     end_time: moment().add(3, 'hours').unix(Number),
     channel_id: 1,
-    episode_id: 2,
+    episode_id: 3,
   },
   {
     start_time: moment().add(2, 'hours').unix(Number),
@@ -41,7 +41,7 @@ const feed = [
     start_time: moment().add(3, 'hours').unix(Number),
     end_time: moment().add(4, 'hours').unix(Number),
     channel_id: 1,
-    episode_id: 3,
+    episode_id: 5,
   },
   {
     start_time: moment().add(3, 'hours').unix(Number),
@@ -59,7 +59,7 @@ const feed = [
     start_time: moment().add(4, 'hours').unix(Number),
     end_time: moment().add(5, 'hours').unix(Number),
     channel_id: 1,
-    episode_id: 4,
+    episode_id: 6,
   },
   {
     start_time: moment().add(4, 'hours').unix(Number),

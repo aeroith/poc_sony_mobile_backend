@@ -26,6 +26,7 @@ exports.seed = function (knex) {
       name: f.name,
       description: f.description,
       global_program_id: f.global_program_id,
+      image_url: f.image_url,
     })))
     .then(() => bbPromise.map(data.episodes, f => knex('episodes').insert({
       id: f.id,
