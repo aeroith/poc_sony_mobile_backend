@@ -24,7 +24,7 @@ const server = app.listen(port, () => {
 });
 
 // capture signal 2 on nodemon subprocess to gracefully restart server
-if (!config.env.isProd) {
-  process.on('SIGUSR2', () => { process.exit(0); });
-}
+// if (!config.env.isProd) {
+//   process.on('SIGUSR2', () => { process.exit(0); });
+// }
 module.exports = server;
