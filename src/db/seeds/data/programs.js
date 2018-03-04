@@ -23,6 +23,16 @@ const programs = [
     description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
     global_program_id: 4,
   },
+  {
+    id: 5,
+    name: 'Gotham',
+    global_program_id: 5,
+  },
+  {
+    id: 6,
+    name: 'The Punisher',
+    global_program_id: 6,
+  },
 ];
 
 module.exports = { programs };
