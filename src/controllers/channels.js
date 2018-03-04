@@ -1,21 +1,7 @@
 const knex = require('../db/connection');
 const http = require('../utils/http');
-const utils = require('../utils/utils');
 const _ = require('lodash');
 const { parseQueryParams } = require('../utils/utils');
-
-const availableFields = [
-  'name',
-  'description',
-  'local_image_url',
-  'global_image_url',
-  'type',
-  'featured',
-  'tags',
-  'categories',
-  'id',
-  'tmdb_id',
-];
 
 module.exports = {
   async getFeeds(ctx) {
@@ -104,7 +90,7 @@ module.exports = {
     }
   },
 
-  async getPrograms(ctx) {
+  async getPrograms(ctx) { // eslint-disable-line consistent-return
     const { channel_id, program_id } = ctx.params;
     const params = parseQueryParams(ctx.query);
     try {
@@ -135,8 +121,26 @@ module.exports = {
       if (_.has(params, 'limit')) {
         query = query.limit(params.limit);
       }
-      if (_.has(params, 'order')) {
-        query = utils.addOrderBy(query, availableFields, params.sort, params.order);
+      if (_.has(params, 'sort')) {
+        let sortParams = params.sort.split('_');
+        if (sortParams.length !== 2 || sortParams[1] !== 'asc') {
+          sortParams = [sortParams[0], 'desc'];
+        }
+        if (sortParams.length > 2) {
+          sortParams = sortParams.slice(0, 2);
+        }
+        switch (sortParams[0]) {
+          case 'name':
+            query = query
+              .orderBy('p.name', sortParams[1]);
+            break;
+          case 'id':
+            query = query
+              .orderBy('id', sortParams[1]);
+            break;
+          default:
+            return http.badRequest(ctx);
+        }
       }
       const programs = await query;
       http.ok(ctx, programs);
@@ -149,8 +153,12 @@ module.exports = {
     const { channel_id } = ctx.params;
     const params = parseQueryParams(ctx.query);
     try {
-      let query = knex
-        .distinct(knex.raw('ON (p.name) p.name'))
+      let query = knex;
+      if (_.has(params, 'distinct')) {
+        query = query
+          .distinct(knex.raw('ON (p.name) p.name'));
+      }
+      query = query
         .select(
           'p.id',
           'p.description',
@@ -177,7 +185,12 @@ module.exports = {
       if (_.has(params, 'featured')) {
         query = query.andWhere('gp.featured', params.featured);
       }
-      query = query.orderBy('p.name');
+      if (_.has(params, 'search')) {
+        query = query.andWhere('p.name', 'like', `%${params.search}%`);
+      }
+      if (_.has(params, 'distinct')) {
+        query = query.orderBy('p.name');
+      }
       if (_.has(params, 'sort')) {
         let sortParams = params.sort.split('_');
         if (sortParams.length !== 2 || sortParams[1] !== 'asc') {
@@ -187,7 +200,7 @@ module.exports = {
           sortParams = sortParams.slice(0, 2);
         }
         switch (sortParams[0]) {
-          case 'episodes':
+          case 'episode':
             query = query
               .orderBy('e.season', sortParams[1])
               .orderBy('e.episode_number', sortParams[1]);
