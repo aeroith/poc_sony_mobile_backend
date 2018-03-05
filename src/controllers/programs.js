@@ -22,7 +22,7 @@ module.exports = {
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id');
 
     if (q && q.length >= 3) {
-      query = query.where('p.name', 'like', `%${q}%`);
+      query = query.where('p.name', 'ilike', `%${q}%`);
     }
 
     try {
