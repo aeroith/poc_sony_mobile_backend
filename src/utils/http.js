@@ -3,7 +3,7 @@ const _ = require('lodash');
 const http = {};
 
 http.ok = (ctx, data) => {
-  if (data && !_.isEmpty(data)) {
+  if (data) {
     ctx.body = {
       status: 'success',
       data,
