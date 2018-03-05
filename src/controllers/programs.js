@@ -4,7 +4,6 @@ const http = require('../utils/http');
 
 module.exports = {
   async get(ctx) {
-    console.log(ctx);
     const { q } = parseQueryParams(ctx.query);
     let query = knex
       .select(
