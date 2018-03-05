@@ -22,10 +22,12 @@ module.exports = {
         'e.image_url AS episode_image_url',
         'p.name',
         'p.image_url',
+        'gp.type',
       )
       .from('feed AS f')
       .innerJoin('episodes AS e', 'f.episode_id', 'e.id')
       .innerJoin('programs as p', 'e.program_id', 'p.id')
+      .innerJoin('global_programs as gp', 'p.global_program_id', 'gp.id')
       .where('f.channel_id', id);
 
     if (startTime && endTime) {
