@@ -17,13 +17,12 @@ module.exports = {
         'gp.featured',
         'gp.image_url',
         'gp.tmdb_id',
-        'gp.tmdb_type',
       )
       .from('programs AS p')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id');
 
     if (q && q.length >= 3) {
-      query = query.where('p.name', 'ilike', `%${q}%`);
+      query = query.where('p.name', 'like', `%${q}%`);
     }
 
     try {
@@ -48,7 +47,6 @@ module.exports = {
           'gp.featured',
           'gp.image_url',
           'gp.tmdb_id',
-          'gp.tmdb_type',
         )
         .from('programs AS p')
         .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
