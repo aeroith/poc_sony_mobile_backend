@@ -35,7 +35,7 @@ const global_programs = [
     id: 5,
     categories: ['mystery'],
     type: 'tv',
-    tmdb_id: '67176',
+    tmdb_id: '60708',
     image_url: 'https://i.hizliresim.com/dOvdmr.jpg',
     tags: ['new'],
     featured: true,
@@ -47,7 +47,7 @@ const global_programs = [
     featured: true,
     tags: ['new', 'popular'],
     image_url: 'https://nerdist.com/wp-content/uploads/2016/03/Daredevil-Season-2-Punisher-Featurette.jpg',
-    tmdb_iD: '67178',
+    tmdb_id: '67178',
   },
 ];
 

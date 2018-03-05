@@ -191,7 +191,7 @@ module.exports = {
         query = query.andWhere('gp.featured', params.featured);
       }
       if (_.has(params, 'search')) {
-        query = query.andWhere('p.name', 'like', `%${params.search}%`);
+        query = query.andWhere('p.name', 'ilike', `%${params.search}%`);
       }
       if (_.has(params, 'distinct')) {
         query = query.orderBy('p.name');
