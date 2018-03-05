@@ -165,7 +165,7 @@ module.exports = {
       }
       query = query
         .select(
-          'p.id',
+          'e.id',
           'p.description',
           'p.image_url AS local_image_url',
           'gp.image_url AS global_image_url',
