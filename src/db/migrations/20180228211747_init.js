@@ -4,13 +4,12 @@ exports.up = function (knex) {
 
     .createTable('global_programs', (table) => {
       table.increments('id');
-      table.enu('type', ['movie', 'series']).notNullable();
+      table.enu('type', ['movie', 'tv']).notNullable();
       table.boolean('featured').defaultTo(false);
       table.json('tags');
       table.json('categories');
       table.string('image_url');
       table.string('tmdb_id');
-      table.enu('tmdb_type', ['tv', 'movie']).notNullable();
       table.timestamps(true, true);
     })
 
