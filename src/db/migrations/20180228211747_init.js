@@ -46,6 +46,7 @@ exports.up = function (knex) {
       table.increments('id');
       table.integer('season');
       table.integer('episode_number');
+      table.string('name');
       table.text('description');
       table.string('image_url');
       table.integer('program_id').references('programs.id').notNullable().onDelete('CASCADE');

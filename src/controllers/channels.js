@@ -18,6 +18,7 @@ module.exports = {
         'e.season',
         'e.episode_number',
         'e.description AS episode_description',
+        'e.name AS episode_name',
         'e.image_url AS episode_image_url',
         'p.name',
         'p.image_url',
