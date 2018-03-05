@@ -19,6 +19,7 @@ exports.seed = function (knex) {
       featured: f.featured,
       image_url: f.image_url,
       tmdb_id: f.tmdb_id,
+      tmdb_type: f.tmdb_type,
       categories: JSON.stringify(f.categories),
     })))
     .then(() => bbPromise.map(data.programs, f => knex('programs').insert({

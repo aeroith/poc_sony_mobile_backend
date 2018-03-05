@@ -10,6 +10,7 @@ exports.up = function (knex) {
       table.json('categories');
       table.string('image_url');
       table.string('tmdb_id');
+      table.enu('tmdb_type', ['tv', 'movie']).notNullable();
       table.timestamps(true, true);
     })
 
