@@ -17,6 +17,14 @@ http.ok = (ctx, data) => {
   }
 };
 
+http.badRequest = (ctx) => {
+  ctx.status = 400;
+  ctx.body = {
+    status: 'error',
+    message: 'Bad request',
+  };
+};
+
 http.internalServerError = (ctx, err) => {
   console.log(err);
   ctx.status = 500;

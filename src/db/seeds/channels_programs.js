@@ -27,6 +27,7 @@ exports.seed = function (knex) {
       name: f.name,
       description: f.description,
       global_program_id: f.global_program_id,
+      image_url: f.image_url,
     })))
     .then(() => bbPromise.map(data.episodes, f => knex('episodes').insert({
       id: f.id,
@@ -34,6 +35,7 @@ exports.seed = function (knex) {
       episode_number: f.episode_number,
       program_id: f.program_id,
       image_url: f.image_url,
+      name: f.name,
     })))
     .then(() => bbPromise.map(data.channels, f => knex('channels').insert({
       id: f.id,
@@ -42,6 +44,8 @@ exports.seed = function (knex) {
       menu: JSON.stringify(f.menu),
       is_default: f.is_default,
       rtl: f.rtl,
+      logo: f.logo,
+      url: f.url,
     })))
     .then(() => bbPromise.map(data.feed, f => knex('feed').insert({
       id: f.id,

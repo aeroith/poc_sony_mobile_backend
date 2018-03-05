@@ -25,7 +25,8 @@ const global_programs = [
     tmdb_type: 'tv',
     categories: ['mystery', 'drama'],
     tags: ['popular'],
-    featured: false,
+    featured: true,
+    image_url: 'https://i.hizliresim.com/jygOmj.jpg',
   },
   {
     id: 4,
@@ -33,6 +34,24 @@ const global_programs = [
     tmdb_id: '238',
     tmdb_type: 'movie',
     type: 'movie',
+  },
+  {
+    id: 5,
+    categories: ['mystery'],
+    type: 'series',
+    tmdb_id: '67176',
+    image_url: 'https://i.hizliresim.com/dOvdmr.jpg',
+    tags: ['new'],
+    featured: true,
+  },
+  {
+    id: 6,
+    Title: 'The Punisher',
+    type: 'series',
+    featured: true,
+    tags: ['new', 'popular'],
+    image_url: 'https://nerdist.com/wp-content/uploads/2016/03/Daredevil-Season-2-Punisher-Featurette.jpg',
+    tmdb_iD: '67178',
   },
 ];
 
