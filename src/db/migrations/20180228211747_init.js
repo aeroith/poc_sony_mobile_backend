@@ -4,7 +4,7 @@ exports.up = function (knex) {
 
     .createTable('global_programs', (table) => {
       table.increments('id');
-      table.enu('type', ['movie', 'series']).notNullable();
+      table.enu('type', ['movie', 'tv']).notNullable();
       table.boolean('featured').defaultTo(false);
       table.json('tags');
       table.json('categories');

@@ -4,12 +4,17 @@ const http = require('../utils/http');
 
 module.exports = {
   async get(ctx) {
+    const { locale: _locale } = ctx.params;
+
     try {
-      const result = await knex
+      let query = knex
         .select('id', 'name', 'locale', 'is_default', 'menu', 'url', 'logo')
         .from('channels');
 
-      const data = _(result)
+      if (_locale) query = query.where('locale', _locale);
+
+      const data = await query;
+      const countries = _(data)
         .groupBy('locale')
         .map((value, locale) => {
           const default_channel = _.find(value, 'is_default');
@@ -26,8 +31,7 @@ module.exports = {
           };
         })
         .value();
-
-      http.ok(ctx, data);
+      http.ok(ctx, countries);
     } catch (err) {
       http.internalServerError(ctx, err);
     }

@@ -1,7 +1,7 @@
 const global_programs = [
   {
     id: 1,
-    type: 'series',
+    type: 'tv',
     tags: ['new'],
     featured: true,
     tmdb_id: '1411',
@@ -10,7 +10,7 @@ const global_programs = [
   },
   {
     id: 2,
-    type: 'series',
+    type: 'tv',
     featured: true,
     tmdb_id: '60735',
     categories: ['science-fiction'],
@@ -18,7 +18,7 @@ const global_programs = [
   },
   {
     id: 3,
-    type: 'series',
+    type: 'tv',
     tmdb_id: '1412',
     categories: ['mystery', 'drama'],
     tags: ['popular'],
@@ -34,8 +34,8 @@ const global_programs = [
   {
     id: 5,
     categories: ['mystery'],
-    type: 'series',
-    tmdb_id: '67176',
+    type: 'tv',
+    tmdb_id: '60708',
     image_url: 'https://i.hizliresim.com/dOvdmr.jpg',
     tags: ['new'],
     featured: true,
@@ -43,11 +43,11 @@ const global_programs = [
   {
     id: 6,
     Title: 'The Punisher',
-    type: 'series',
+    type: 'tv',
     featured: true,
     tags: ['new', 'popular'],
     image_url: 'https://nerdist.com/wp-content/uploads/2016/03/Daredevil-Season-2-Punisher-Featurette.jpg',
-    tmdb_iD: '67178',
+    tmdb_id: '67178',
   },
 ];
 
