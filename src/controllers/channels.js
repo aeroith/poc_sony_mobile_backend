@@ -227,4 +227,71 @@ module.exports = {
       http.internalServerError(ctx, err);
     }
   },
+
+  async getEpisodes(ctx) {
+    const { channel_id } = ctx.params;
+    const query = knex
+      .select(
+        'e.id',
+        'e.season',
+        'e.episode_number',
+        'e.name',
+        'e.description',
+        'e.image_url AS episode_image_url',
+        'p.name',
+        'p.image_url AS local_image_url',
+        'gp.type',
+        'gp.featured',
+        'gp.tags',
+        'gp.categories',
+        'gp.image_url AS global_image_url',
+        'gp.tmdb_id',
+      )
+      .from('channels AS c')
+      .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
+      .innerJoin('programs AS p', 'cp.program_id', 'p.id')
+      .innerJoin('episodes AS e', 'p.id', 'e.program_id')
+      .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .where('c.id', channel_id);
+    try {
+      const episodes = await query;
+      http.ok(ctx, episodes);
+    } catch (err) {
+      http.internalServerError(ctx, err);
+    }
+  },
+
+  async getEpisodesOne(ctx) {
+    const { channel_id, episode_id } = ctx.params;
+    const query = knex
+      .select(
+        'e.id',
+        'e.season',
+        'e.episode_number',
+        'e.name',
+        'e.description',
+        'e.image_url AS episode_image_url',
+        'p.name',
+        'p.image_url AS local_image_url',
+        'gp.type',
+        'gp.featured',
+        'gp.tags',
+        'gp.categories',
+        'gp.image_url AS global_image_url',
+        'gp.tmdb_id',
+      )
+      .from('channels AS c')
+      .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
+      .innerJoin('programs AS p', 'cp.program_id', 'p.id')
+      .innerJoin('episodes AS e', 'p.id', 'e.program_id')
+      .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .where('c.id', channel_id)
+      .andWhere('e.id', episode_id);
+    try {
+      const episodes = await query;
+      http.ok(ctx, episodes);
+    } catch (err) {
+      http.internalServerError(ctx, err);
+    }
+  },
 };
