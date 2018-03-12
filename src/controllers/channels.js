@@ -246,12 +246,15 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
+        'f.start_time',
+        'f.end_time',
       )
       .from('channels AS c')
       .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
       .innerJoin('programs AS p', 'cp.program_id', 'p.id')
       .innerJoin('episodes AS e', 'p.id', 'e.program_id')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .innerJoin('feed AS f', 'e.id', 'f.id')
       .where('c.id', channel_id);
     try {
       const episodes = await query;
@@ -279,12 +282,15 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
+        'f.start_time',
+        'f.end_time',
       )
       .from('channels AS c')
       .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
       .innerJoin('programs AS p', 'cp.program_id', 'p.id')
       .innerJoin('episodes AS e', 'p.id', 'e.program_id')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .innerJoin('feed AS f', 'e.id', 'f.id')
       .where('c.id', channel_id)
       .andWhere('e.id', episode_id);
     try {

@@ -19,10 +19,13 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
+        'f.start_time',
+        'f.end_time',
       )
       .from('episodes AS e')
       .innerJoin('programs AS p', 'e.program_id', 'p.id')
-      .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id');
+      .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .innerJoin('feed AS f', 'e.id', 'f.id');
     try {
       const episodes = await query;
       http.ok(ctx, episodes);
@@ -48,10 +51,13 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
+        'f.start_time',
+        'f.end_time',
       )
       .from('episodes AS e')
       .innerJoin('programs AS p', 'e.program_id', 'p.id')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .innerJoin('feed AS f', 'e.id', 'f.id')
       .where('e.id', id);
     try {
       const episode = await query;
