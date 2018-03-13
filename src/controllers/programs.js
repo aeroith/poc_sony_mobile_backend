@@ -16,6 +16,7 @@ module.exports = {
         'gp.featured',
         'gp.image_url',
         'gp.tmdb_id',
+        'gp.poster_image',
       )
       .from('programs AS p')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id');
@@ -46,6 +47,7 @@ module.exports = {
           'gp.featured',
           'gp.image_url',
           'gp.tmdb_id',
+          'gp.poster_image',
         )
         .from('programs AS p')
         .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
