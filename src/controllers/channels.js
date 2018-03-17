@@ -236,6 +236,56 @@ module.exports = {
     }
   },
 
+  async getProgramWithEpisodes(ctx) {
+    const { channel_id, program_id } = ctx.params;
+    const query = knex
+      .select(
+        'e.id',
+        'e.season',
+        'e.episode_number',
+        'e.name AS episode_name',
+        'e.description',
+        'e.image_url AS episode_image_url',
+        'p.name',
+        'p.image_url AS local_image_url',
+        'gp.type',
+        'gp.featured',
+        'gp.tags',
+        'gp.categories',
+        'gp.image_url AS global_image_url',
+        'gp.tmdb_id',
+        'f.start_time',
+        'f.end_time',
+        'c.id AS channel_id',
+      )
+      .from('channels AS c')
+      .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
+      .innerJoin('programs AS p', 'cp.program_id', 'p.id')
+      .innerJoin('episodes AS e', 'p.id', 'e.program_id')
+      .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
+      .innerJoin('feed AS f', 'e.id', 'f.id')
+      .where('c.id', channel_id)
+      .andWhere('p.id', program_id);
+    try {
+      const episodes = await query;
+      const program = episodes.length > 0 ? _.pick(episodes[0], [
+        'name',
+        'local_image_url',
+        'type',
+        'tags',
+        'categories',
+        'global_image_url',
+        'tmdb_id',
+      ]) : {};
+      http.ok(ctx, {
+        seasons: _.groupBy(episodes, episode => episode.season),
+        program,
+      });
+    } catch (err) {
+      http.internalServerError(ctx, err);
+    }
+  },
+
   async getEpisodes(ctx) {
     const { channel_id } = ctx.params;
     const query = knex

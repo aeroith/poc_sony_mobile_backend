@@ -10,6 +10,7 @@ router.get(`${BASE_URL}/:channel_id/episodes`, ctrl.getEpisodes);
 router.get(`${BASE_URL}/:channel_id/episodes/:episode_id`, ctrl.getEpisodesOne);
 router.get(`${BASE_URL}/:channel_id/programs/episodes`, ctrl.getProgramsWithEpisodes);
 router.get(`${BASE_URL}/:channel_id/programs/:program_id`, ctrl.getPrograms);
+router.get(`${BASE_URL}/:channel_id/programs/:program_id/episodes`, ctrl.getProgramWithEpisodes);
 router.get(`${BASE_URL}/:channel_id/programs`, ctrl.getPrograms);
 router.get(`${BASE_URL}/:id`, ctrl.getOne);
 router.get(`${BASE_URL}/:id/feeds`, ctrl.getFeeds);
