@@ -119,6 +119,12 @@ module.exports = {
       if (program_id) {
         query = query.andWhere('p.id', program_id);
       }
+      if (_.has(params, 'q')) {
+        const searchQuery = params.q;
+        if (searchQuery.length >= 3) {
+          query = query.andWhere('p.name', 'ilike', `%${params.q}%`);
+        }
+      }
       if (_.has(params, 'featured')) {
         query = query.andWhere('gp.featured', params.featured);
       }
