@@ -254,8 +254,6 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
-        'f.start_time',
-        'f.end_time',
         'c.id AS channel_id',
       )
       .from('channels AS c')
@@ -263,7 +261,6 @@ module.exports = {
       .innerJoin('programs AS p', 'cp.program_id', 'p.id')
       .innerJoin('episodes AS e', 'p.id', 'e.program_id')
       .innerJoin('global_programs AS gp', 'p.global_program_id', 'gp.id')
-      .innerJoin('feed AS f', 'e.id', 'f.id')
       .where('c.id', channel_id)
       .andWhere('p.id', program_id);
     try {

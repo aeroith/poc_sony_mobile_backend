@@ -117,6 +117,22 @@ const episodes = [
     name: 'Going Rouge',
     channel_id: 2,
   },
+  {
+    id: 17,
+    season: 2,
+    episode_number: 1,
+    program_id: 2,
+    name: 'Man Who Saved The Central City',
+    channel_id: 2,
+  },
+  {
+    id: 18,
+    season: 2,
+    episode_number: 2,
+    program_id: 2,
+    name: 'Flash of Two Worlds',
+    channel_id: 2,
+  },
 ];
 
 module.exports = { episodes };
