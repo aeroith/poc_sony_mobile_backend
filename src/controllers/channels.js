@@ -273,7 +273,7 @@ module.exports = {
         'categories',
         'global_image_url',
         'tmdb_id',
-      ]) : {};
+      ]) : null;
       http.ok(ctx, {
         seasons: _.groupBy(episodes, episode => episode.season),
         program,
