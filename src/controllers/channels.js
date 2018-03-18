@@ -61,6 +61,8 @@ module.exports = {
           'menu',
           'is_default',
           'rtl',
+          'live_url',
+          'poster_image',
         )
         .from('channels')
         .where({ id });
@@ -81,6 +83,8 @@ module.exports = {
           'menu',
           'is_default',
           'rtl',
+          'live_url',
+          'poster_image',
         )
         .from('channels');
       if (_.has(params, 'limit')) {

@@ -23,6 +23,8 @@ exports.up = function (knex) {
       table.json('menu').notNullable();
       table.boolean('is_default').defaultTo(false);
       table.boolean('rtl').defaultTo(false);
+      table.string('live_url');
+      table.string('poster_image');
       table.timestamps(true, true);
     })
 

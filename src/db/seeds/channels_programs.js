@@ -46,6 +46,8 @@ exports.seed = function (knex) {
       rtl: f.rtl,
       logo: f.logo,
       url: f.url,
+      live_url: f.live_url,
+      poster_image: f.poster_image,
     })))
     .then(() => bbPromise.map(data.feed, f => knex('feed').insert({
       id: f.id,
