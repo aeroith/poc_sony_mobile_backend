@@ -244,11 +244,12 @@ module.exports = {
         'e.season',
         'e.episode_number',
         'e.name AS episode_name',
-        'e.description',
+        'e.description AS episode_description',
         'e.image_url AS episode_image_url',
         'p.id AS program_id',
         'p.name',
         'p.image_url AS local_image_url',
+        'p.description',
         'gp.id AS global_program_id',
         'gp.type',
         'gp.featured',
@@ -277,6 +278,7 @@ module.exports = {
         'tmdb_id',
         'program_id',
         'global_program_id',
+        'description',
       ]) : null;
       http.ok(ctx, {
         seasons: _.groupBy(episodes, episode => episode.season),
