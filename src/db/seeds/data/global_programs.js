@@ -25,7 +25,7 @@ const global_programs = [
     categories: ['mystery', 'drama'],
     tags: ['popular'],
     featured: true,
-    image_url: 'https://i.hizliresim.com/jygOmj.jpg',
+    image_url: 'https://cdn.nupic.co/images/2018/03/20/jygOmj.jpg',
     poster_image: 'https://vignette.wikia.nocookie.net/greenarrow/images/f/ff/Arrow_TV_Series_Promo_Poster-6.jpg/revision/latest?cb=20130420043342',
   },
   {
@@ -40,7 +40,7 @@ const global_programs = [
     categories: ['mystery'],
     type: 'tv',
     tmdb_id: '60708',
-    image_url: 'https://i.hizliresim.com/dOvdmr.jpg',
+    image_url: 'https://cdn.nupic.co/images/2018/03/20/dOvdmr.jpg',
     poster_image: 'https://resmim.net/f/NM1v0w.jpg',
     tags: ['new'],
     featured: true,

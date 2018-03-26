@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test node ./src/scripts/syncmigrations.js && ./node_modules/mocha/bin/_mocha ./test/**/*.test.js --exit",
-    "start": "nodemon src/index.js"
+    "start": "./node_modules/nodemon/bin/nodemon.js src/index.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "eslint-plugin-import": "^2.9.0",
     "mocha": "^5.0.1",
     "ncp": "^2.0.0",
+    "nodemon": "^1.17.2",
     "sinon": "^4.4.2"
   }
 }

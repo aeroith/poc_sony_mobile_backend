@@ -8,7 +8,7 @@ module.exports = {
 
     try {
       let query = knex
-        .select('id', 'name', 'locale', 'is_default', 'menu', 'url', 'logo')
+        .select('id', 'name', 'locale', 'is_default', 'menu', 'url', 'logo', 'live_url', 'poster_image')
         .from('channels');
 
       if (_locale) query = query.where('locale', _locale);
@@ -27,6 +27,8 @@ module.exports = {
               menu: v.menu,
               url: v.url,
               logo: v.logo,
+              live_url: v.live_url,
+              poster_image: v.poster_image,
             })),
           };
         })

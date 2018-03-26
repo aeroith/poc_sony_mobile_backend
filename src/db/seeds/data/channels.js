@@ -7,16 +7,19 @@ const channels = [
     is_default: true,
     logo: 'https://www.sonychannelturkiye.com/sites/all/themes/responsive/responsive_sony_russia/logo.png',
     url: 'https://www.sonychannelturkiye.com',
+    live_url: 'https://planet-live.ercdn.net/sony/sony_1080p.m3u8',
+    poster_image: 'https://cdn.nupic.co/images/2018/03/21/photo_2018-03-21_10-06-52.jpg',
   },
   {
     id: 2,
     name: 'Sony Crime Channel',
-    menu: ['programs', 'tv_guide', 'galleries', 'news', 'games_and_more'],
+    menu: ['programs', 'tv_guide', 'galleries', 'news', 'games_and_more', 'livefeed'],
     locale: 'en_GB',
     is_default: true,
     logo: 'https://vignette.wikia.nocookie.net/logopedia/images/8/87/SonyCrimeChannelUK.png/revision/latest/scale-to-width-down/140?cb=20180126010145',
     url: 'https://www.sonycrimechannel.com/',
-
+    live_url: 'https://planet-live.ercdn.net/sony/sony_1080p.m3u8',
+    poster_image: 'https://cdn.nupic.co/images/2018/03/21/photo_2018-03-21_10-06-52.jpg',
   },
   {
     id: 3,
