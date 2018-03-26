@@ -13,7 +13,7 @@ const channels = [
   {
     id: 2,
     name: 'Sony Crime Channel',
-    menu: ['programs', 'tv_guide', 'galleries', 'news', 'games_and_more', 'livefeed'],
+    menu: ['programs', 'tv_guide', 'galleries', 'news', 'games_and_more', 'live_feed'],
     locale: 'en_GB',
     is_default: true,
     logo: 'https://vignette.wikia.nocookie.net/logopedia/images/8/87/SonyCrimeChannelUK.png/revision/latest/scale-to-width-down/140?cb=20180126010145',
