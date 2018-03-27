@@ -18,10 +18,10 @@ const episodes = [
   {
     id: 3,
     season: 1,
-    episode_number: 2,
+    episode_number: 1,
     program_id: 2,
-    name: 'This guy runs',
-    channel_id: 1,
+    name: 'Pilot',
+    channel_id: 2,
   },
   {
     id: 4,
@@ -91,6 +91,47 @@ const episodes = [
     episode_number: 2,
     program_id: 6,
     name: 'Who is a bad boy?',
+  },
+
+  {
+    id: 14,
+    season: 1,
+    episode_number: 2,
+    program_id: 2,
+    name: 'Fastest Man Alive',
+    channel_id: 2,
+  },
+  {
+    id: 15,
+    season: 1,
+    episode_number: 3,
+    program_id: 2,
+    name: 'Things You Can\'t Outrun',
+    channel_id: 2,
+  },
+  {
+    id: 16,
+    season: 1,
+    episode_number: 4,
+    program_id: 2,
+    name: 'Going Rouge',
+    channel_id: 2,
+  },
+  {
+    id: 17,
+    season: 2,
+    episode_number: 1,
+    program_id: 2,
+    name: 'Man Who Saved The Central City',
+    channel_id: 2,
+  },
+  {
+    id: 18,
+    season: 2,
+    episode_number: 2,
+    program_id: 2,
+    name: 'Flash of Two Worlds',
+    channel_id: 2,
   },
 ];
 
