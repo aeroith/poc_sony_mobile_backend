@@ -15,6 +15,7 @@ module.exports = {
         'f.id',
         'f.start_time',
         'f.end_time',
+        'e.program_id',
         'e.season',
         'e.episode_number',
         'e.description AS episode_description',
@@ -177,6 +178,7 @@ module.exports = {
       query = query
         .select(
           'e.id',
+          'e.program_id',
           'p.description',
           'p.image_url AS local_image_url',
           'gp.image_url AS global_image_url',
