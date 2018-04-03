@@ -284,9 +284,13 @@ module.exports = {
         'global_program_id',
         'description',
       ]) : null;
+      console.log('episodes: ', episodes);
+      const isMovie = episodes.some(episode => episode.type === 'movie');
       http.ok(ctx, {
-        seasons: _.groupBy(episodes, episode => episode.season),
         program,
+        titles: isMovie
+          ? { 0: episodes }
+          : _.groupBy(episodes, episode => episode.season),
       });
     } catch (err) {
       http.internalServerError(ctx, err);
