@@ -19,7 +19,6 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
-        'gp.poster_image',
         'f.start_time',
         'f.end_time',
       )
@@ -52,7 +51,6 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
-        'gp.poster_image',
         'f.start_time',
         'f.end_time',
       )

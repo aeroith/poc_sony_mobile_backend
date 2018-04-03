@@ -7,7 +7,6 @@ const global_programs = [
     tmdb_id: '1411',
     categories: ['action', 'crime'],
     image_url: 'https://www.sonychannelturkiye.com/sites/tr.turk/files/styles/image_1170x658/public/ct_series_f_primary_image/08.jpg',
-    poster_image: 'https://resizing.flixster.com/YzFfQPOGgL5dOhaAXXEQw0S8VJA=/206x305/v1.dDs5MTg1MDtqOzE3NjQxOzEyMDA7MTc1OzIzOQ',
   },
   {
     id: 2,
@@ -16,7 +15,6 @@ const global_programs = [
     tmdb_id: '60735',
     categories: ['science-fiction'],
     image_url: 'https://www.sonychannelturkiye.com/sites/tr.turk/files/styles/image_1170x658/public/ct_series_f_primary_image/theflash_1600x900.jpg',
-    poster_image: 'https://i.hizliresim.com/gODkMZ.jpg',
   },
   {
     id: 3,
@@ -26,14 +24,13 @@ const global_programs = [
     tags: ['popular'],
     featured: true,
     image_url: 'https://cdn.nupic.co/images/2018/03/20/jygOmj.jpg',
-    poster_image: 'https://vignette.wikia.nocookie.net/greenarrow/images/f/ff/Arrow_TV_Series_Promo_Poster-6.jpg/revision/latest?cb=20130420043342',
   },
   {
     id: 4,
     categories: ['romance', 'crime'],
     tmdb_id: '238',
     type: 'movie',
-    poster_image: 'https://i.hizliresim.com/6JEZMv.jpg',
+    image_url: 'https://blog.sanatkardan.com/wp-content/uploads/2017/12/the-godfather-508d945641aed.jpg',
   },
   {
     id: 5,
@@ -41,19 +38,24 @@ const global_programs = [
     type: 'tv',
     tmdb_id: '60708',
     image_url: 'https://cdn.nupic.co/images/2018/03/20/dOvdmr.jpg',
-    poster_image: 'https://resmim.net/f/NM1v0w.jpg',
     tags: ['new'],
     featured: true,
   },
   {
     id: 6,
-    Title: 'The Punisher',
     type: 'tv',
     featured: true,
     tags: ['new', 'popular'],
     image_url: 'https://nerdist.com/wp-content/uploads/2016/03/Daredevil-Season-2-Punisher-Featurette.jpg',
-    poster_image: 'https://i.hizliresim.com/6JEZj3.jpg',
     tmdb_id: '67178',
+  },
+  {
+    id: 7,
+    type: 'tv',
+    featured: true,
+    tags: ['popular'],
+    tmdb_id: 1431,
+    image_url: 'https://www.capitalfm.co.ke/lifestyle/files/2015/05/Crime-Scene-Investigation.jpg',
   },
 ];
 

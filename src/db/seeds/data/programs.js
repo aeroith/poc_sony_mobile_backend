@@ -30,14 +30,23 @@ const programs = [
   {
     id: 5,
     name: 'Gotham',
+    description: 'Before there was Batman, there was GOTHAM. Everyone knows the name Commissioner Gordon. He is one of the crime world\'s greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon\'s story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world\'s most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?',
     global_program_id: 5,
-    image_url: 'https://i.hizliresim.com/dOvdmr.jpg',
+    image_url: 'https://i.ytimg.com/vi/VwOPA2upeCA/maxresdefault.jpg',
   },
   {
     id: 6,
     name: 'The Punisher',
     global_program_id: 6,
+    description: 'A former Marine out to punish the criminals responsible for his family\'s murder finds himself ensnared in a military conspiracy.',
     image_url: 'https://nerdist.com/wp-content/uploads/2016/03/Daredevil-Season-2-Punisher-Featurette.jpg',
+  },
+  {
+    id: 7,
+    name: 'CSI: Crime Scene Investigation',
+    description: 'The series follows Las Vegas criminalists working for the Las Vegas Police Department as they use physical evidence to solve grisly murders in this unusually graphic drama, which has inspired a host of other cop-show "procedurals". The series mixes deduction, gritty subject matter and character-driven drama. The network later added spin-offs CSI: Miami and CSI: NY, which have both been cancelled after ten and nine seasons respectively.',
+    global_program_id: 7,
+    image_url: 'https://www.capitalfm.co.ke/lifestyle/files/2015/05/Crime-Scene-Investigation.jpg',
   },
 ];
 

@@ -10,7 +10,6 @@ exports.up = function (knex) {
       table.json('categories');
       table.string('image_url');
       table.string('tmdb_id');
-      table.string('poster_image').notNullable();
       table.timestamps(true, true);
     })
 

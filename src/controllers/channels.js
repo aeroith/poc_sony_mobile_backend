@@ -114,7 +114,6 @@ module.exports = {
           'gp.tags',
           'gp.categories',
           'gp.tmdb_id',
-          'gp.poster_image',
         )
         .from('channels AS c')
         .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
@@ -190,7 +189,6 @@ module.exports = {
           'e.description',
           'e.season',
           'e.episode_number',
-          'gp.poster_image',
         )
         .from('channels AS c')
         .innerJoin('channels_programs AS cp', 'c.id', 'cp.channel_id')
@@ -313,7 +311,6 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
-        'gp.poster_image',
         'f.start_time',
         'f.end_time',
       )
@@ -350,7 +347,6 @@ module.exports = {
         'gp.categories',
         'gp.image_url AS global_image_url',
         'gp.tmdb_id',
-        'gp.poster_image',
         'f.start_time',
         'f.end_time',
       )

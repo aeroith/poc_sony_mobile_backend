@@ -32,6 +32,26 @@ const channels_programs = [
     program_id: 2,
   },
   {
+    channel_id: 2,
+    program_id: 3,
+  },
+  {
+    channel_id: 2,
+    program_id: 4,
+  },
+  {
+    channel_id: 2,
+    program_id: 5,
+  },
+  {
+    channel_id: 2,
+    program_id: 6,
+  },
+  {
+    channel_id: 2,
+    program_id: 7,
+  },
+  {
     channel_id: 3,
     program_id: 3,
   },
