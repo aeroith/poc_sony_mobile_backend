@@ -52,7 +52,6 @@ const global_programs = [
   {
     id: 7,
     type: 'tv',
-    featured: true,
     tags: ['popular'],
     tmdb_id: 1431,
     image_url: 'https://www.capitalfm.co.ke/lifestyle/files/2015/05/Crime-Scene-Investigation.jpg',
