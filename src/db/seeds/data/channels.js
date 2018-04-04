@@ -13,7 +13,7 @@ const channels = [
   {
     id: 2,
     name: 'Sony Crime Channel',
-    menu: ['programs', 'tv_guide', 'galleries', 'news', 'games_and_more', 'live_feed'],
+    menu: ['tv_guide', 'programs', 'live_feed', 'galleries', 'news', 'games_and_more'],
     locale: 'en_GB',
     is_default: true,
     logo: 'https://vignette.wikia.nocookie.net/logopedia/images/8/87/SonyCrimeChannelUK.png/revision/latest/scale-to-width-down/140?cb=20180126010145',
@@ -42,7 +42,7 @@ const channels = [
     id: 5,
     name: 'Movies 4 Men',
     locale: 'en_GB',
-    menu: ['programs', 'tvguide', 'galleries', 'quizzes', 'videos', 'news'],
+    menu: ['programs', 'tv_guide', 'galleries', 'quizzes', 'videos', 'news'],
     logo: 'https://www.sonymoviechannel.co.uk/sites/all/themes/responsive/responsive_smc_uk_2/logo.png',
     url: 'https://www.movies4men.co.uk/',
   },
