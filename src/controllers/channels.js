@@ -284,7 +284,6 @@ module.exports = {
         'global_program_id',
         'description',
       ]) : null;
-      console.log('episodes: ', episodes);
       const isMovie = episodes.some(episode => episode.type === 'movie');
       http.ok(ctx, {
         program,
